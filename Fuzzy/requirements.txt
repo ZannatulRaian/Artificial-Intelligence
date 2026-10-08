@@ -1,0 +1,7 @@
+numpy
+scikit-fuzzy
+networkx
+matplotlib
+scipy
+
+# py -m pip install -r requirements.txt

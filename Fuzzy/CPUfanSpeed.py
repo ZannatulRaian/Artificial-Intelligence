@@ -1,6 +1,7 @@
 import numpy as np
 import skfuzzy as fuzz
 from skfuzzy import control as ctrl
+import matplotlib.pyplot as plt
 
 temp=ctrl.Antecedent(np.arange(30,101,1),'temp')
 load=ctrl.Antecedent(np.arange(0,101,1),'load')
@@ -35,5 +36,10 @@ sim.input['temp']=78
 sim.input['load']=85
 sim.compute()
 
-print(f"Fan speed: {sim.output['fan']:.2f}%")
+sim.print_state()
+print(f"\n\tFan speed for {78}°C temp & {85}% load: {sim.output['fan']:.2f}%")
+
+temp.view(sim=sim)
+load.view(sim=sim)
 fan.view(sim=sim)
+plt.show()
